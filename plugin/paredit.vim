@@ -179,7 +179,6 @@ function! PareditInitBuffer()
             nnoremap <buffer> <silent> s            :<C-U>call PareditEraseFwd()<CR>i
         else
             " Longer keymaps with <Leader> prefix
-            nnoremap <buffer> <silent> S            V:<C-U>call PareditChange(visualmode(),1)<CR>
             call RepeatableNNoRemap(g:paredit_leader . '<', ':<C-U>call PareditMoveLeft()') 
             call RepeatableNNoRemap(g:paredit_leader . '>', ':<C-U>call PareditMoveRight()') 
             call RepeatableNNoRemap(g:paredit_leader . 'O', ':<C-U>call PareditSplit()') 
