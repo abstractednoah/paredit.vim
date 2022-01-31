@@ -124,7 +124,6 @@ function! PareditInitBuffer()
         call RepeatableNNoRemap('x', ':<C-U>call PareditEraseFwd()')
         nnoremap <buffer> <silent> <Del>        :<C-U>call PareditEraseFwd()<CR>
         call RepeatableNNoRemap('X', ':<C-U>call PareditEraseBck()')
-        nnoremap <buffer> <silent> s            :<C-U>call PareditEraseFwd()<CR>i
         call RepeatableNNoRemap('D', 'v$:<C-U>call PareditDelete(visualmode(),1)')
         nnoremap <buffer> <silent> C            v$:<C-U>call PareditChange(visualmode(),1)<CR>
         nnoremap <buffer> <silent> d            :<C-U>call PareditSetDelete(v:count)<CR>g@
@@ -177,6 +176,7 @@ function! PareditInitBuffer()
             execute 'nnoremap <buffer> <silent> ' . g:paredit_leader.'W  :<C-U>normal! W<CR>'
             execute 'vnoremap <buffer> <silent> ' . g:paredit_leader.'W  :<C-U>normal! W<CR>'
             execute 'nnoremap <buffer> <silent> ' . g:paredit_leader.'S  :<C-U>normal! S<CR>'
+            nnoremap <buffer> <silent> s            :<C-U>call PareditEraseFwd()<CR>i
         else
             " Longer keymaps with <Leader> prefix
             nnoremap <buffer> <silent> S            V:<C-U>call PareditChange(visualmode(),1)<CR>
